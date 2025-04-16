@@ -1,10 +1,11 @@
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function Header() {
-    return (
-      <div className="flex flex-row justify-center items-center mb-4">
-        <h1 className="font-bold text-4xl">nola</h1>
-        <ul className="flex gap-6 mt-2 text-lg font-semibold">
+  return (
+    <nav className="py-6">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+        <h1 className="font-bold text-4xl md:text-5xl tracking-tight">nola</h1>
+        <ul className="flex gap-12 text-lg font-medium">
           <li>
             <Link href={'/'} className="">
               home
@@ -27,6 +28,6 @@ export default function Header() {
           </li>
         </ul>
       </div>
-    );
-    
+    </nav>
+  );
 }
