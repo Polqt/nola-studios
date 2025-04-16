@@ -1,6 +1,11 @@
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { Separator } from "@/components/ui/separator";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'works | nola',
+};
 
 export default function WorkPage() {
   return (

@@ -2,6 +2,11 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import Main from '@/components/Main';
 import { Separator } from '@/components/ui/separator';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'home | nola',
+};
 
 export default function HomePage() {
   return (

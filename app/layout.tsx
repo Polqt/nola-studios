@@ -3,8 +3,7 @@ import "./globals.css";
 import '@fontsource/inter';
 
 export const metadata: Metadata = {
-  title: "home | nola",
-  description: "home",
+  title: "",
 };
 
 export default function RootLayout({

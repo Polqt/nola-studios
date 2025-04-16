@@ -29,7 +29,7 @@ export default function Footer() {
             </div>
           </div>
           <div className="flex flex-col">
-            <p className="mb-4">follow us on social media</p>
+            <p className="mb-4 font-medium">follow us on social media</p>
             <div className="flex space-x-4 mb-8">
               <Link href={'https://www.instagram.com/nola.studios.ph/'}>
                 <IconBrandInstagram size={32} />
