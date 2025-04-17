@@ -21,7 +21,11 @@ export default function AboutPage() {
           <About />
         </div>
       </div>
-      <TeamCard />
+      <Separator className="bg-black w-full" />
+      <div className="min-h-screen flex items-center">
+        <TeamCard />
+      </div>
+      <Separator className="bg-black w-full" />
       <Footer />
     </div>
   );

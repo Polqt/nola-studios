@@ -34,7 +34,7 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-
+      <Separator className="bg-black w-full" />
       <Footer />
     </div>
   );
