@@ -1,6 +1,7 @@
 import About from '@/components/About';
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
+import TeamCard from '@/components/TeamCard';
 import { Separator } from '@/components/ui/separator';
 import { Metadata } from 'next';
 
@@ -20,6 +21,7 @@ export default function AboutPage() {
           <About />
         </div>
       </div>
+      <TeamCard />
       <Footer />
     </div>
   );
