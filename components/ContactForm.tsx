@@ -9,6 +9,7 @@ import { Input } from './ui/input';
 import { Textarea } from './ui/textarea';
 import { Button } from './ui/button';
 import { ChevronRight } from 'lucide-react';
+import { toast } from 'sonner';
 
 const formSchema = z.object({
   firstName: z.string().min(2, {
@@ -48,8 +49,22 @@ export default function ContactForm() {
     setIsSubmitting(true);
 
     try {
+      // TODO: Find a framework that can send email real time
       await new Promise(resolve => setTimeout(resolve, 2000));
-    } catch (error) {}
+
+      toast.success('Your message has been sent successfully!', {
+        description: 'We will get back to you as soon as possible.',
+      });
+
+      form.reset();
+    } catch (error) {
+      toast.error('Something went wrong.', {
+        description: 'Your message was not set. Please try again.',
+      });
+      console.log(`Error: `, error);
+    }
+
+    setIsSubmitting(false);
   }
 
   return (
