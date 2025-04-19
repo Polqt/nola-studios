@@ -20,13 +20,13 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 2,
-    name: 'FOINE Essence',
+    name: 'Jani Essence',
     description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
     imageSrc: '',
   },
   {
     id: 3,
-    name: 'FOINE Essence',
+    name: 'Winjan Essence',
     description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
     imageSrc: '',
   },
