@@ -1,125 +1,95 @@
-'use client';
-
 import { cn } from '@/lib/utils';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { Marquee } from '@/components/magicui/marquee';
+import Image from 'next/image';
 
-type Testimonial = {
-  id: number;
-  name: string;
-  description: string;
-  imageSrc: string;
-};
-
-const testimonials: Testimonial[] = [
+const reviews = [
   {
-    id: 1,
     name: 'FOINE Essence',
-    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
-    imageSrc: '',
+    username: 'Perfume',
+    body: 'NOLA Studios brought our brand to life online. Their creative direction and content strategy helped us reach and connect with a wider audience.',
+    img: '/logo/FOINE.svg',
   },
   {
-    id: 2,
     name: 'Gambrino',
-    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
-    imageSrc: '',
+    username: 'Watches',
+    body: 'Working with NOLA Studios was seamless. Their visuals and campaign execution elevated our brand’s image and drove real engagement.',
+    img: '/logo/GAMBRINO.svg',
   },
   {
-    id: 3,
     name: 'Linkit',
-    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
-    imageSrc: '',
+    username: 'NFC Business Cardss',
+    body: 'Professional, fast, and impactful—NOLA Studios delivered exactly what we needed to boost our brand presence.',
+    img: '/logo/LINKIT.svg',
   },
   {
-    id: 4,
     name: 'Nomadico',
-    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
-    imageSrc: '',
+    username: 'Wallets',
+    body: 'From strategy to execution, NOLA Studios made our brand feel bold and adventurous. A perfect match for Nomadico’s identity.',
+    img: '/logo/NOMADICO.svg',
   },
   {
-    id: 5,
+    name: 'ROMOSS',
+    username: 'Power Solutions',
+    body: 'NOLA Studios nailed our product showcases. Their team knew how to highlight our tech in a way that resonated with our customers.',
+    img: '/logo/ROMOSS.svg',
+  },
+  {
     name: 'Pacete Clinic',
-    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
-    imageSrc: '',
-  },
-  {
-    id: 6,
-    name: 'Romoss',
-    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
-    imageSrc: '',
+    username: 'Clinic ',
+    body: 'NOLA Studios understood our vision perfectly. Their marketing approach was both strategic and personal—exactly what our clinic needed.',
+    img: '/logo/PACETE.svg',
   },
 ];
 
-export default function Testimonials() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+const firstRow = reviews.slice(0, reviews.length / 2);
+const secondRow = reviews.slice(reviews.length / 2);
 
-  const nextTestimonial = () => {
-    setCurrentIndex(prevIndex => (prevIndex + 1) % testimonials.length);
-  };
-
-  const prevTestimonial = () => {
-    setCurrentIndex(
-      prevIndex => (prevIndex - 1 + testimonials.length) % testimonials.length,
-    );
-  };
-
-  useEffect(() => {
-    const interval = setInterval(nextTestimonial, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
+const ReviewCard = ({
+  img,
+  name,
+  username,
+  body,
+}: {
+  img: string;
+  name: string;
+  username: string;
+  body: string;
+}) => {
   return (
-    <div className="w-full container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24">
-      <h1 className="text-5xl md:Text-6xl lg:text-7xl font-bold mb-12 md:mb-16">
-        hear from our clients
-      </h1>
-      <div className="relative">
-        <button
-          title="prev"
-          type="button"
-          onClick={prevTestimonial}
-          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 p-2"
-        >
-          <ChevronLeft size={36} className="text-black" />
-        </button>
-        <button
-          title="next"
-          type="button"
-          onClick={nextTestimonial}
-          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 p-2"
-        >
-          <ChevronRight size={36} className="text-black" />
-        </button>
-        <div className="flex items-start max-w-4xl mx-auto px-12">
-          <div className="w-1/3 pr-8">
-            <div className="bg-whtite rounded-full w-32 h-32 md:w-40 md:h-40"></div>
-          </div>
-
-          <div className="w-2/3">
-            <h3 className="text-2xl font-bold mb-3">
-              {testimonials[currentIndex].name}
-            </h3>
-            <p className="text-lg md:text-xl">
-              {testimonials[currentIndex].description}
-            </p>
-          </div>
-        </div>
-        <div className="flex justify-center mt-8 gap-2">
-          {testimonials.map((_, index) => (
-            <button
-              title={`testimonial ${index + 1}`}
-              type="button"
-              key={index}
-              onClick={() => setCurrentIndex(index)}
-              className={cn(
-                'w-3 h-3 rounded-full transition-all duration-200 ease-in-out',
-                currentIndex === index ? 'bg-black' : 'bg-gray-500 opacity-50',
-              )}
-              aria-label={`Testimonial ${index + 1}`}
-            ></button>
-          ))}
+    <figure
+      className={cn(
+        'relative h-full w-64 cursor-pointer overflow-hidden rounded-xl border p-4',
+        'border-gray-950/[.1] bg-gray-950/[.01] hover:bg-gray-950/[.05]',
+        'dark:border-gray-50/[.1] dark:bg-gray-50/[.10] dark:hover:bg-gray-50/[.15]',
+      )}
+    >
+      <div className="flex flex-row items-center gap-2">
+        <Image className="rounded-full" width="32" height="32" alt="" src={img} />
+        <div className="flex flex-col">
+          <figcaption className="text-sm font-medium dark:text-white">
+            {name}
+          </figcaption>
+          <p className="text-xs font-medium dark:text-white/40">{username}</p>
         </div>
       </div>
+      <blockquote className="mt-2 text-sm">{body}</blockquote>
+    </figure>
+  );
+};
+
+export default function Testimonials() {
+  return (
+    <div className="relative flex w-full flex-col items-center justify-center overflow-hidden">
+      <Marquee pauseOnHover className="[--duration:20s]">
+        {firstRow.map(review => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
+      <Marquee reverse pauseOnHover className="[--duration:20s]">
+        {secondRow.map(review => (
+          <ReviewCard key={review.username} {...review} />
+        ))}
+      </Marquee>
     </div>
   );
 }

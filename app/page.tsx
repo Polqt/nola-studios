@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="bg-[#FFDF1E] flex-grow">
+      <div className="flex-grow">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Navbar />
         </div>
@@ -23,19 +23,15 @@ export default function HomePage() {
           <Main />
         </div>
       </div>
-      <Separator className="bg-black w-full" />
       <div className="min-h-screen flex items-center">
         <Services />
       </div>
-      <Separator className="bg-black  w-full" />
-      <div className="min-h-screen flex items-center bg-[#FFDF1E]">
+      <div className="min-h-screen flex items-center ">
         <Testimonials />
       </div>
-      <Separator className="bg-black w-full" />
       <div className="min-h-screen flex items-center">
         <Clients />
       </div>
-      <Separator className="bg-black w-full" />
       <Footer />
     </div>
   );

@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="bg-[#FFDF1E]">
+      <div className="">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Navbar />
         </div>
@@ -34,7 +34,6 @@ export default function ContactPage() {
           </div>
         </div>
       </div>
-      <Separator className="bg-black w-full" />
       <Footer />
     </div>
   );
