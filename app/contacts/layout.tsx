@@ -1,12 +1,10 @@
-import type { Metadata } from 'next';
-import './globals.css';
-import '@fontsource/inter';
+import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: '',
+  title: 'works | nola',
 };
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;

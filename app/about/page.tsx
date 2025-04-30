@@ -3,11 +3,6 @@ import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
 import TeamCard from '@/components/TeamCard';
 import { Separator } from '@/components/ui/separator';
-import { Metadata } from 'next';
-
-export const metadata: Metadata = {
-  title: 'about | nola',
-};
 
 export default function AboutPage() {
   return (

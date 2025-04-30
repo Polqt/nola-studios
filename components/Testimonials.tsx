@@ -20,13 +20,31 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 2,
-    name: 'Jani Essence',
+    name: 'Gambrino',
     description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
     imageSrc: '',
   },
   {
     id: 3,
-    name: 'Winjan Essence',
+    name: 'Linkit',
+    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
+    imageSrc: '',
+  },
+  {
+    id: 4,
+    name: 'Nomadico',
+    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
+    imageSrc: '',
+  },
+  {
+    id: 5,
+    name: 'Pacete Clinic',
+    description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
+    imageSrc: '',
+  },
+  {
+    id: 6,
+    name: 'Romoss',
     description: `NOLA Studious brought our vision to life with creativity, strategy, and heart. FOINE Essence has seen real growth in brand awareness, engagement, and sales. They don't just market your brand-- they believe in it.`,
     imageSrc: '',
   },
