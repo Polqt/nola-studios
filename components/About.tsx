@@ -31,7 +31,7 @@ export default function About() {
         initial="hidden"
         animate="show"
         variants={staggeredChildren}
-        className="relative z-10"
+        className="relative z-7"
       >
         <motion.h1
           variants={fadeInUp}
@@ -81,7 +81,7 @@ export default function About() {
               <div className="h-24 w-1 bg-neutral-800" />
               <div className="text-sm uppercase tracking-widest">
                 <p className="font-semibold">established</p>
-                <p>2022</p>
+                <p>2025</p>
               </div>
             </div>
           </motion.div>

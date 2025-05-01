@@ -14,7 +14,6 @@ export default function AboutPage() {
           <Navbar />
         </div>
 
-        {/* Hero section with subtle animation */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
@@ -25,7 +24,6 @@ export default function AboutPage() {
         </motion.div>
       </div>
 
-      {/* Team section with scroll reveal */}
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -41,7 +39,6 @@ export default function AboutPage() {
         </div>
       </motion.div>
 
-      {/* Work with us section */}
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}

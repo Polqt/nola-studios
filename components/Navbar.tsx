@@ -27,9 +27,7 @@ export default function Navbar() {
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.5 }}
-      className={`py-6 sticky top-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'bg-neutral-50/90 backdrop-blur-md shadow-sm' : ''
-      }`}
+      className={`py-6 sticky top-0 z-50 transition-all duration-300}`}
     >
       <div className="flex justify-between items-center">
         <Link href="/">
@@ -38,7 +36,6 @@ export default function Navbar() {
           </h1>
         </Link>
 
-        {/* Desktop Navigation */}
         <ul className="hidden md:flex gap-12 items-center text-lg">
           {['home', 'about', 'works', 'contact us'].map((item, index) => (
             <motion.li
@@ -62,7 +59,6 @@ export default function Navbar() {
           ))}
         </ul>
 
-        {/* Mobile Menu Button */}
         <button
           className="block md:hidden"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -71,7 +67,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <motion.div
           initial={{ opacity: 0, height: 0 }}
