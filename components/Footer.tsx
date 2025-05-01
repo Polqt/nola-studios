@@ -1,4 +1,7 @@
+'use client'
+
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import {
   IconBrandBehance,
   IconBrandFacebookFilled,
@@ -7,44 +10,108 @@ import {
 
 export default function Footer() {
   return (
-    <div className="py-12 px-4 md:px-8">
+    <motion.footer
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8 }}
+      className="py-16 px-4 md:px-8 bg-neutral-950 text-white"
+    >
       <div className="container mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="flex flex-col">
-            <h1 className="font-bold text-4xl mb-2">nola</h1>
-            <p className="text-lg">
-              huilding your brand, <br />
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
+          <div className="md:col-span-4 space-y-6">
+            <Link href="/">
+              <h1 className="font-bold text-4xl mb-2 cursor-pointer">
+                nola<span className="text-neutral-400">.</span>
+              </h1>
+            </Link>
+            <p className="text-lg text-neutral-300">
+              building your brand, <br />
               from vision to viral
             </p>
-          </div>
-          <div className="flex flex-col">
-            <p className="mb-6 font-medium">
-              bacolod city, <br />
-              negros occidental, <br />
-              philippines
-            </p>
-            <div className="font-medium">
-              <p>contact@nolastudios.net</p>
-              <p>+63 905 236 7934</p>
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <p className="mb-4 font-medium">follow us on social media</p>
-            <div className="flex space-x-4 mb-8">
-              <Link href={'https://www.instagram.com/nola.studios.ph/'}>
-                <IconBrandInstagram size={32} />
+            <div className="flex space-x-5 pt-4">
+              <Link
+                href={'https://www.instagram.com/nola.studios.ph/'}
+                className="hover:text-neutral-300 transition-colors"
+              >
+                <IconBrandInstagram size={24} />
               </Link>
-              <Link href={'https://www.facebook.com/nola.studios.ph'}>
-                <IconBrandFacebookFilled size={32} />
+              <Link
+                href={'https://www.facebook.com/nola.studios.ph'}
+                className="hover:text-neutral-300 transition-colors"
+              >
+                <IconBrandFacebookFilled size={24} />
               </Link>
-              <Link href={'https://www.behance.net/nolastudios'}>
-                <IconBrandBehance size={32} />
+              <Link
+                href={'https://www.behance.net/nolastudios'}
+                className="hover:text-neutral-300 transition-colors"
+              >
+                <IconBrandBehance size={24} />
               </Link>
             </div>
-            <p className="text-xs mt-auto">© 2025 / nola studios</p>
+          </div>
+
+          <div className="md:col-span-4 space-y-8">
+            <div>
+              <h3 className="text-sm uppercase tracking-wider text-neutral-400 mb-4">
+                Location
+              </h3>
+              <p className="text-neutral-300">
+                bacolod city, <br />
+                negros occidental, <br />
+                philippines
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-sm uppercase tracking-wider text-neutral-400 mb-4">
+                Contact
+              </h3>
+              <a
+                href="mailto:contact@nolastudios.net"
+                className="block text-neutral-300 hover:text-white transition-colors"
+              >
+                contact@nolastudios.net
+              </a>
+              <a
+                href="tel:+639052367934"
+                className="block text-neutral-300 hover:text-white transition-colors"
+              >
+                +63 905 236 7934
+              </a>
+            </div>
+          </div>
+
+          <div className="md:col-span-4">
+            <h3 className="text-sm uppercase tracking-wider text-neutral-400 mb-4">
+              Navigation
+            </h3>
+            <ul className="space-y-3">
+              {['Home', 'About', 'Works', 'Contact'].map(item => (
+                <li key={item}>
+                  <Link
+                    href={
+                      item === 'Contact'
+                        ? '/contacts'
+                        : `/${item === 'Home' ? '' : item.toLowerCase()}`
+                    }
+                    className="text-neutral-300 hover:text-white transition-colors"
+                  >
+                    {item.toLowerCase()}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
+
+        <div className="border-t border-neutral-800 mt-16 pt-8 flex flex-col md:flex-row justify-between items-center">
+          <p className="text-sm text-neutral-500">© 2025 / nola studios</p>
+          <p className="text-sm text-neutral-500 mt-4 md:mt-0">
+            crafted with passion in the philippines
+          </p>
+        </div>
       </div>
-    </div>
+    </motion.footer>
   );
 }
