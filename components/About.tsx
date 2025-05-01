@@ -37,7 +37,7 @@ export default function About() {
           variants={fadeInUp}
           className="font-bold text-6xl md:text-7xl lg:text-8xl mb-16 tracking-tight"
         >
-          about<span className="text-neutral-400">.</span>
+          about<span className="text-[#FFDF1E]">.</span>
         </motion.h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-6xl">

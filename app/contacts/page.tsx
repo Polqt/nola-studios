@@ -38,7 +38,7 @@ export default function ContactPage() {
       x: mousePosition.x - 75,
       y: mousePosition.y - 75,
       opacity: 0.1,
-      mixBlendMode: 'difference' as MixBlendMode,
+      mix: 'difference',
     },
   };
 
@@ -179,13 +179,11 @@ export default function ContactPage() {
           </motion.a>
         </div>
 
-        {/* Abstract shapes in background */}
         <div className="absolute top-[10%] left-[5%] w-16 h-16 rounded-full bg-white/5" />
         <div className="absolute top-[40%] right-[10%] w-24 h-24 rounded-full bg-white/5" />
         <div className="absolute bottom-[10%] left-[20%] w-20 h-20 rounded-full bg-white/5" />
         <div className="absolute -bottom-10 right-[30%] w-40 h-40 rounded-full bg-[#FFDF1E]/10" />
       </motion.div>
-
       <Footer />
     </div>
   );

@@ -36,7 +36,9 @@ const inputVariants = {
 
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [focusedField, setFocusedField] = useState<null | 'name' | 'email' | 'phone' | 'company' | 'subject' | 'message'>(null);
+  const [focusedField, setFocusedField] = useState<
+    null | 'name' | 'email' | 'phone' | 'company' | 'subject' | 'message'
+  >(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -76,7 +78,10 @@ export default function ContactForm() {
       <h2 className="text-3xl font-bold mb-8">say hello</h2>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(() => onSubmit())} className="space-y-5">
+        <form
+          onSubmit={form.handleSubmit(() => onSubmit())}
+          className="space-y-5"
+        >
           <FormField
             control={form.control}
             name="name"

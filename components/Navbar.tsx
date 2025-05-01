@@ -32,7 +32,7 @@ export default function Navbar() {
       <div className="flex justify-between items-center">
         <Link href="/">
           <h1 className="font-bold text-4xl md:text-5xl tracking-tight cursor-pointer">
-            nola<span className="text-neutral-400">.</span>
+            nola<span className="text-[#FFDF1E]">.</span>
           </h1>
         </Link>
 

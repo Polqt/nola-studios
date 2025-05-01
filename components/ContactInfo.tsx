@@ -15,7 +15,7 @@ export default function ContactInfo() {
     {
       icon: <Mail className="text-[#FFDF1E]" />,
       label: 'email',
-      value: 'hello@nolastudios.ph',
+      value: 'contact@nolastudios.net',
       delay: 0.1,
     },
     {
