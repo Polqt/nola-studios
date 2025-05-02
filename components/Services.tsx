@@ -1,49 +1,64 @@
-import { BookOpen, FastForward, Paintbrush } from 'lucide-react';
+import { motion } from 'framer-motion';
+import SectionHeader from './SectionHeader';
 
-export default function Services() {
+const Services = () => {
   const services = [
     {
-      icon: <Paintbrush size={48} fill="currentColor" strokeWidth={0} />,
-      title: 'we shape your vision',
+      title: 'Brand Strategy',
       description:
-        'from articulating your campaign vision, we bring your ideas to life with purpose and originality',
+        'Develop a cohesive brand identity that resonates with your audience and stands out in your industry.',
+      icon: '✨',
     },
     {
-      icon: <BookOpen size={48} fill="currentColor" strokeWidth={0} />,
-      title: 'we create your story',
+      title: 'Content Creation',
       description:
-        'high-impact video, photography, and design that capture attention and connect with your audience.',
+        'Produce scroll-stopping visuals and compelling narratives that capture attention and drive engagement.',
+      icon: '🎨',
     },
     {
-      icon: <FastForward size={48} fill="currentColor" strokeWidth={0} />,
-      title: 'we amplify your reach',
+      title: 'Digital Marketing',
       description:
-        'from social media to paid ads, we turn your message into momentum- viral is just the beginning.',
+        'Execute targeted campaigns that connect with your ideal customers and generate measurable results.',
+      icon: '📈',
+    },
+    {
+      title: 'Social Media',
+      description:
+        'Build and maintain an active presence across platforms that matters most to your audience.',
+      icon: '📱',
     },
   ];
+
   return (
-    <div className="w-full container mx-auto px-4 md:px-6 lg:px-8 py-16 md:py-24">
-      <div className="flex flex-col justify-center items-center mb-12 md:mb-16 text-center">
-        <h1 className="font-bold text-4xl md:text-5xl lg:text-6xl mb-4">
-          what can we do for you
-        </h1>
-        <p className="text-lg md:text-xl max-w-2xl">
-          strategic marketing and support to ensure that your brand reaches your
-          next audience
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+    <div className="container mx-auto px-4 md:px-6 lg:px-8 py-32 lowercase">
+      <SectionHeader
+        subtitle="our expertise"
+        title="services that drive results"
+        titleHighlight="results"
+        center={true}
+        description="We combine strategic thinking with creative execution to deliver experiences that elevate your brand."
+      />
+
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
         {services.map((service, index) => (
-          <div
+          <motion.div
             key={index}
-            className="bg-[#FFDF1E] p-8 flex flex-col items-start"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
+            className="bg-neutral-800/50 p-8 backdrop-blur-sm"
           >
-            <div className="mb-4">{service.icon}</div>
-            <h3 className="font-bold text-xl mb-2">{service.title}</h3>
-            <p className="text-sm">{service.description}</p>
-          </div>
+            <div className="text-4xl mb-4 text-[#FFDF1E]">{service.icon}</div>
+            <h3 className="text-2xl font-bold mb-4 lowercase">
+              {service.title}
+            </h3>
+            <p className="text-neutral-300">{service.description}</p>
+          </motion.div>
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default Services;

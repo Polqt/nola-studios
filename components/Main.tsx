@@ -1,34 +1,70 @@
-export default function Main() {
+import { motion } from "framer-motion";
+
+interface MainProps {
+  textHoverEnter: () => void;
+  textHoverLeave: () => void;
+}
+
+const Main = ({ textHoverEnter, textHoverLeave }: MainProps) => {
   return (
-    <div className="py-16 md:py-24 lg:py-32">
-      <div className="max-w-3xl">
-        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-8 md:mb-12 leading-tight">
+    <div className="container mx-auto px-4 md:px-6 lg:px-8 min-h-[80vh] flex items-center">
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8, delay: 0.2 }}
+        className="max-w-4xl"
+      >
+        <span className="text-[#FFDF1E] uppercase text-sm tracking-widest mb-4 inline-block">
+          Digital Creative Studio
+        </span>
+        <h1
+          className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-tight"
+          onMouseEnter={textHoverEnter}
+          onMouseLeave={textHoverLeave}
+        >
           from vision,
           <br />
-          to viral.
+          to <span className="text-[#FFDF1E]">viral</span>.
         </h1>
 
-        <div className="space-y-6 text-lg">
-          <p className="leading-relaxed">
-            at nola studios philippines, we take your brand&apos;s boldest ideas
-            and <br />
-            turn them into powerful, attention-grabbing experiences. from first{' '}
-            <br />
-            concept to global reach — we help you go beyond just being seen.
+        <motion.div
+          className="space-y-6 text-xl"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+        >
+          <p className="leading-relaxed max-w-2xl text-neutral-300 lowercase">
+            At NOLA Studios Philippines, we transform bold ideas into
+            attention-grabbing digital experiences that make your brand
+            unforgettable.
           </p>
 
-          <p className="font-medium">we make you unforgettable.</p>
-
-          <div className="pt-4">
-            <a
-              href="#"
-              className="bg-black text-white px-6 py-3 font-medium inline-block hover:bg-black/80 transition-colors"
+          <div className="pt-8 flex space-x-6">
+            <motion.a
+              href="#work"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#FFDF1E] text-black px-8 py-4 font-medium inline-block transition-colors"
+              onMouseEnter={textHoverEnter}
+              onMouseLeave={textHoverLeave}
             >
-              launch your brand
-            </a>
+              see our work
+            </motion.a>
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="border border-white px-8 py-4 font-medium inline-block hover:bg-white/10 transition-colors"
+              onMouseEnter={textHoverEnter}
+              onMouseLeave={textHoverLeave}
+            >
+              get in touch
+            </motion.a>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
     </div>
   );
-}
+};
+
+export default Main;
