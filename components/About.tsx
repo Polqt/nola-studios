@@ -20,46 +20,8 @@ export default function About() {
     },
   };
 
-  // Company values data
-  const values = [
-    {
-      id: 'creativity',
-      title: 'Creativity',
-      description:
-        'We push boundaries and think outside the box to deliver unique solutions that set your brand apart.',
-      icon: '✦',
-    },
-    {
-      id: 'excellence',
-      title: 'Excellence',
-      description:
-        "We're committed to exceptional quality in everything we create, from concept to execution.",
-      icon: '★',
-    },
-    {
-      id: 'collaboration',
-      title: 'Collaboration',
-      description:
-        'We work closely with our clients, treating your vision with the care and attention it deserves.',
-      icon: '⟡',
-    },
-    {
-      id: 'innovation',
-      title: 'Innovation',
-      description:
-        'We constantly evolve, embracing new technologies and approaches to stay ahead of trends.',
-      icon: '◈',
-    },
-  ];
-
   return (
     <div className="relative">
-      {/* Subtle background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
-        <div className="absolute -top-20 right-10 w-72 h-72 bg-[#FFDF1E]/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 -left-20 w-80 h-80 bg-[#FFDF1E]/5 rounded-full blur-3xl" />
-      </div>
-
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -67,7 +29,6 @@ export default function About() {
         variants={staggerContainer}
         className="relative"
       >
-        {/* Story and mission section */}
         <motion.div variants={fadeIn} className="mb-24">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div className="space-y-8">
@@ -123,7 +84,7 @@ export default function About() {
 
             <div>
               <motion.div variants={fadeIn} className="h-full flex flex-col">
-                <div className="bg-white p-10 rounded-xl shadow-lg shadow-black/5 h-full relative overflow-hidden">
+                <div className="bg-black p-10 rounded-xl shadow-lg shadow-black/5 h-full relative overflow-hidden">
                   <div className="absolute -right-12 -top-12 w-48 h-48 rounded-full bg-[#FFDF1E]/10 blur-xl" />
 
                   <div className="relative z-10">
@@ -158,51 +119,7 @@ export default function About() {
             </div>
           </div>
         </motion.div>
-
-        {/* Values section */}
-        <motion.div variants={fadeIn} className="mb-20">
-          <div className="text-center mb-16">
-            <div className="flex items-center justify-center space-x-4 mb-2">
-              <div className="h-px w-12 bg-[#FFDF1E]" />
-              <span className="text-neutral-500 uppercase tracking-wider text-sm font-medium">
-                What drives us
-              </span>
-              <div className="h-px w-12 bg-[#FFDF1E]" />
-            </div>
-            <h2 className="font-bold text-4xl md:text-5xl mb-4">
-              our core <span className="text-[#FFDF1E]">values</span>
-            </h2>
-            <p className="text-lg text-neutral-600 max-w-xl mx-auto">
-              The principles that guide our work and relationships
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => (
-              <motion.div
-                key={value.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{
-                  y: -5,
-                  boxShadow: '0 10px 30px -15px rgba(0, 0, 0, 0.1)',
-                  backgroundColor:
-                    index % 2 === 0
-                      ? 'rgba(255, 223, 30, 0.03)'
-                      : 'rgba(255, 255, 255, 1)',
-                }}
-                className="bg-white p-8 rounded-xl shadow-sm transition-all duration-300 border border-neutral-100 hover:border-[#FFDF1E]/30"
-              >
-                <div className="text-3xl text-[#FFDF1E] mb-4">{value.icon}</div>
-                <h3 className="font-bold text-xl mb-3">{value.title}</h3>
-                <p className="text-neutral-600">{value.description}</p>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
-
+    
         <motion.div variants={fadeIn} className="pt-16 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -263,7 +180,7 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="relative overflow-hidden rounded-xl shadow-xl shadow-black/10 border-8 border-white"
-              >
+              >or 
                 <div className="aspect-[4/3] bg-neutral-100 rounded-lg relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center bg-neutral-800">
                     <div className="text-white text-center">
@@ -279,7 +196,7 @@ export default function About() {
                     </div>
                   </div>
                 </div>
-              </motion.div> 
+              </motion.div>
             </div>
           </div>
         </motion.div>

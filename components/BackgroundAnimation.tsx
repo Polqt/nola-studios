@@ -12,7 +12,6 @@ export default function BackgroundAnimation() {
     if (!ctx) return;
     let animationFrameId: number;
 
-    // Set canvas dimensions
     const handleResize = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
@@ -21,7 +20,6 @@ export default function BackgroundAnimation() {
     window.addEventListener('resize', handleResize);
     handleResize();
 
-    // Particle settings
     const particlesArray: Particle[] = [];
     const numberOfParticles = 40;
 
@@ -49,8 +47,6 @@ export default function BackgroundAnimation() {
         this.y += this.speedY;
 
         if (this.size > 0.2) this.size -= 0.01;
-
-        // Boundary check
         if (this.x < 0 || this.x > canvas!.width) this.speedX = -this.speedX;
         if (this.y < 0 || this.y > canvas!.height) this.speedY = -this.speedY;
       }
@@ -65,7 +61,7 @@ export default function BackgroundAnimation() {
       }
     }
 
-    // Create particles
+
     const init = () => {
       for (let i = 0; i < numberOfParticles; i++) {
         particlesArray.push(new Particle());
@@ -74,7 +70,6 @@ export default function BackgroundAnimation() {
 
     init();
 
-    // Animation loop
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -83,13 +78,11 @@ export default function BackgroundAnimation() {
         particlesArray[i].draw();
       }
 
-      // Connect particles with lines if they're close enough
       connect();
 
       animationFrameId = requestAnimationFrame(animate);
     };
 
-    // Connect particles with lines
     const connect = () => {
       let opacity = 0.05;
       for (let a = 0; a < particlesArray.length; a++) {
@@ -99,7 +92,6 @@ export default function BackgroundAnimation() {
           const distance = Math.sqrt(dx * dx + dy * dy);
 
           if (distance < 150) {
-            // Connection distance
             opacity = 0.1 - distance / 5000;
             ctx.strokeStyle = `rgba(255, 223, 30, ${opacity})`;
             ctx.lineWidth = 0.5;
