@@ -62,7 +62,7 @@ const HeroSection = ({ textHoverEnter, textHoverLeave }: HeroSectionProps) => {
           </motion.div>
 
           <motion.p
-            className="text-2xl font-light max-w-xl text-neutral-300"
+            className="text-2xl font-light max-w-xl text-neutral-300 lowercase"
             initial={{ y: 50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
@@ -83,7 +83,7 @@ const HeroSection = ({ textHoverEnter, textHoverLeave }: HeroSectionProps) => {
               whileTap={{ scale: 0.95 }}
               className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFDF1E] text-neutral-900 font-medium rounded-full hover:bg-[#FFDF1E]/90 transition-all"
             >
-              <span>Our Story</span>
+              <span className="lowercase">Our Story</span>
               <ArrowRight size={18} />
             </motion.a>
           </motion.div>

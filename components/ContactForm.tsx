@@ -20,7 +20,6 @@ const formSchema = z.object({
     message: 'Please enter a valid email address.',
   }),
   phone: z.string().optional(),
-  company: z.string().optional(),
   subject: z.string().min(2, {
     message: 'Subject must be at least 2 characters long',
   }),
@@ -37,7 +36,7 @@ const inputVariants = {
 export default function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [focusedField, setFocusedField] = useState<
-    null | 'name' | 'email' | 'phone' | 'company' | 'subject' | 'message'
+    null | 'name' | 'email' | 'phone' | 'subject' | 'message'
   >(null);
 
   const form = useForm<z.infer<typeof formSchema>>({
@@ -46,7 +45,6 @@ export default function ContactForm() {
       name: '',
       email: '',
       phone: '',
-      company: '',
       subject: '',
       message: '',
     },
@@ -73,170 +71,108 @@ export default function ContactForm() {
     setIsSubmitting(false);
   }
 
+  const formFields = [
+    { name: 'name', placeholder: 'your name', type: 'text', required: true },
+    {
+      name: 'email',
+      placeholder: 'email address',
+      type: 'email',
+      required: true,
+    },
+    {
+      name: 'phone',
+      placeholder: 'phone (optional)',
+      type: 'tel',
+      required: false,
+    },
+    { name: 'subject', placeholder: 'subject', type: 'text', required: true },
+  ];
+
   return (
     <>
-      <h2 className="text-3xl font-bold mb-8">say hello</h2>
+      <div className="flex items-center space-x-4 mb-8">
+        <div className="h-8 w-1 bg-[#FFDF1E]" />
+        <span className="text-[#FFDF1E] font-bold text-2xl lowercase">
+          say hello
+        </span>
+      </div>
 
       <Form {...form}>
         <form
           onSubmit={form.handleSubmit(() => onSubmit())}
-          className="space-y-5"
+          className="space-y-6"
         >
-          <FormField
-            control={form.control}
-            name="name"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <motion.div
-                    variants={inputVariants}
-                    animate={focusedField === 'name' ? 'focus' : 'blur'}
-                  >
-                    <Input
-                      placeholder="your name"
-                      {...field}
-                      className="border border-neutral-300 h-12 bg-transparent rounded-lg focus:ring-[#FFDF1E] focus:border-[#FFDF1E] transition-all"
-                      onFocus={() => setFocusedField('name')}
-                      onBlur={() => setFocusedField(null)}
-                    />
-                  </motion.div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
+          <div className="grid grid-cols-1 gap-6">
+            {formFields.map(field => (
+              <FormField
+                key={field.name}
+                control={form.control}
+                name={field.name as 'name' | 'email' | 'phone' | 'subject'}
+                render={({ field: formField }) => (
+                  <FormItem>
+                    <FormControl>
+                      <motion.div
+                        variants={inputVariants}
+                        animate={focusedField === field.name ? 'focus' : 'blur'}
+                      >
+                        <Input
+                          placeholder={field.placeholder}
+                          type={field.type}
+                          {...formField}
+                          className="border-0 border-b border-white/20 h-12 bg-transparent rounded-none focus:ring-0 focus:border-[#FFDF1E] transition-all text-white placeholder:text-neutral-500"
+                          onFocus={() =>
+                            setFocusedField(
+                              field.name as
+                                | 'name'
+                                | 'email'
+                                | 'phone'
+                                | 'subject',
+                            )
+                          }
+                          onBlur={() => setFocusedField(null)}
+                        />
+                      </motion.div>
+                    </FormControl>
+                    <FormMessage className="text-[#FFDF1E]" />
+                  </FormItem>
+                )}
+              />
+            ))}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <FormField
               control={form.control}
-              name="email"
+              name="message"
               render={({ field }) => (
                 <FormItem>
                   <FormControl>
                     <motion.div
                       variants={inputVariants}
-                      animate={focusedField === 'email' ? 'focus' : 'blur'}
+                      animate={focusedField === 'message' ? 'focus' : 'blur'}
                     >
-                      <Input
-                        placeholder="email address"
-                        type="email"
+                      <Textarea
+                        placeholder="your message"
                         {...field}
-                        className="border border-neutral-300 h-12 bg-transparent rounded-lg focus:ring-[#FFDF1E] focus:border-[#FFDF1E] transition-all"
-                        onFocus={() => setFocusedField('email')}
+                        className="border-0 border-b border-white/20 bg-transparent h-32 rounded-none focus:ring-0 focus:border-[#FFDF1E] transition-all resize-none text-white placeholder:text-neutral-500"
+                        onFocus={() => setFocusedField('message')}
                         onBlur={() => setFocusedField(null)}
                       />
                     </motion.div>
                   </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="phone"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <motion.div
-                      variants={inputVariants}
-                      animate={focusedField === 'phone' ? 'focus' : 'blur'}
-                    >
-                      <Input
-                        placeholder="phone (optional)"
-                        type="tel"
-                        {...field}
-                        className="border border-neutral-300 h-12 bg-transparent rounded-lg focus:ring-[#FFDF1E] focus:border-[#FFDF1E] transition-all"
-                        onFocus={() => setFocusedField('phone')}
-                        onBlur={() => setFocusedField(null)}
-                      />
-                    </motion.div>
-                  </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-[#FFDF1E]" />
                 </FormItem>
               )}
             />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-            <FormField
-              control={form.control}
-              name="company"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <motion.div
-                      variants={inputVariants}
-                      animate={focusedField === 'company' ? 'focus' : 'blur'}
-                    >
-                      <Input
-                        placeholder="company (optional)"
-                        {...field}
-                        className="border border-neutral-300 h-12 bg-transparent rounded-lg focus:ring-[#FFDF1E] focus:border-[#FFDF1E] transition-all"
-                        onFocus={() => setFocusedField('company')}
-                        onBlur={() => setFocusedField(null)}
-                      />
-                    </motion.div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-
-            <FormField
-              control={form.control}
-              name="subject"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <motion.div
-                      variants={inputVariants}
-                      animate={focusedField === 'subject' ? 'focus' : 'blur'}
-                    >
-                      <Input
-                        placeholder="subject"
-                        {...field}
-                        className="border border-neutral-300 h-12 bg-transparent rounded-lg focus:ring-[#FFDF1E] focus:border-[#FFDF1E] transition-all"
-                        onFocus={() => setFocusedField('subject')}
-                        onBlur={() => setFocusedField(null)}
-                      />
-                    </motion.div>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </div>
-
-          <FormField
-            control={form.control}
-            name="message"
-            render={({ field }) => (
-              <FormItem>
-                <FormControl>
-                  <motion.div
-                    variants={inputVariants}
-                    animate={focusedField === 'message' ? 'focus' : 'blur'}
-                  >
-                    <Textarea
-                      placeholder="your message"
-                      {...field}
-                      className="border border-neutral-300 bg-transparent h-40 rounded-lg focus:ring-[#FFDF1E] focus:border-[#FFDF1E] transition-all resize-none"
-                      onFocus={() => setFocusedField('message')}
-                      onBlur={() => setFocusedField(null)}
-                    />
-                  </motion.div>
-                </FormControl>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-
-          <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
+          <motion.div
+            whileHover={{ scale: 1.03 }}
+            whileTap={{ scale: 0.97 }}
+            className="mt-10"
+          >
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="bg-black text-white hover:bg-neutral-800 font-medium py-4 px-8 rounded-lg w-full md:w-auto transition-all relative overflow-hidden group"
+              className="bg-[#FFDF1E] text-neutral-900 hover:bg-[#FFDF1E]/90 font-medium py-3 px-8 rounded-full transition-all relative overflow-hidden group"
             >
               <span className="relative z-10 flex items-center justify-center">
                 {isSubmitting ? (
@@ -251,7 +187,7 @@ export default function ContactForm() {
                   </>
                 )}
               </span>
-              <span className="absolute inset-0 bg-[#FFDF1E] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
+              <span className="absolute inset-0 bg-white transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left" />
               <span className="absolute inset-0 bg-black opacity-0 group-hover:opacity-10 transition-opacity" />
             </Button>
           </motion.div>

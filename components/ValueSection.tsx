@@ -12,7 +12,7 @@ const ValuesSection = () => {
       transition={{ duration: 0.8 }}
       className="py-32 bg-neutral-800 relative overflow-hidden"
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 lowercase">
         <SectionHeader
           subtitle="Our Values"
           title="Principles that guide our work"

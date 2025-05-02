@@ -33,7 +33,7 @@ const CTASection = ({ textHoverEnter, textHoverLeave }: CTASectionProps) => {
                 </span>
               </div>
               <h2
-                className="font-bold text-4xl md:text-5xl mb-6 leading-tight"
+                className="font-bold text-4xl md:text-5xl mb-6 leading-tight lowercase"
                 onMouseEnter={textHoverEnter}
                 onMouseLeave={textHoverLeave}
               >
@@ -41,9 +41,10 @@ const CTASection = ({ textHoverEnter, textHoverLeave }: CTASectionProps) => {
                 <span className="text-[#FFDF1E]">extraordinary?</span>
               </h2>
 
-              <p className="text-xl mb-8 text-neutral-300">
-                Let&apos;s collaborate to bring your vision to life with strategic
-                thinking and creative execution that exceeds expectations.
+              <p className="text-xl mb-8 text-neutral-300 lowercase">
+                Let&apos;s collaborate to bring your vision to life with
+                strategic thinking and creative execution that exceeds
+                expectations.
               </p>
 
               <motion.a
@@ -52,7 +53,7 @@ const CTASection = ({ textHoverEnter, textHoverLeave }: CTASectionProps) => {
                 whileTap={{ scale: 0.95 }}
                 className="inline-flex items-center gap-2 px-8 py-4 bg-[#FFDF1E] text-neutral-900 font-medium rounded-full hover:bg-[#FFDF1E]/90 transition-all"
               >
-                <span>Start a project</span>
+                <span className="lowercase">Start a project</span>
                 <ArrowRight size={18} />
               </motion.a>
             </motion.div>

@@ -75,7 +75,7 @@ export const AnimatedTestimonials = ({
                   }}
                   transition={{
                     duration: 0.4,
-                    ease: "easeInOut",
+                    ease: 'easeInOut',
                   }}
                   className="absolute inset-0 origin-bottom"
                 >
@@ -109,32 +109,32 @@ export const AnimatedTestimonials = ({
             }}
             transition={{
               duration: 0.2,
-              ease: "easeInOut",
+              ease: 'easeInOut',
             }}
           >
-            <h3 className="text-2xl font-bold text-black dark:text-white">
+            <h3 className="text-2xl font-bold text-white dark:text-white">
               {testimonials[active].name}
             </h3>
-            <p className="text-sm text-gray-500 dark:text-neutral-500">
+            <p className="text-sm text-slate-500 dark:text-neutral-500">
               {testimonials[active].designation}
             </p>
-            <motion.p className="mt-8 text-lg text-gray-500 dark:text-neutral-300">
-              {testimonials[active].quote.split(" ").map((word, index) => (
+            <motion.p className="mt-8 text-lg text-slate-500 dark:text-neutral-300">
+              {testimonials[active].quote.split(' ').map((word, index) => (
                 <motion.span
                   key={index}
                   initial={{
-                    filter: "blur(10px)",
+                    filter: 'blur(10px)',
                     opacity: 0,
                     y: 5,
                   }}
                   animate={{
-                    filter: "blur(0px)",
+                    filter: 'blur(0px)',
                     opacity: 1,
                     y: 0,
                   }}
                   transition={{
                     duration: 0.2,
-                    ease: "easeInOut",
+                    ease: 'easeInOut',
                     delay: 0.02 * index,
                   }}
                   className="inline-block"
@@ -146,12 +146,14 @@ export const AnimatedTestimonials = ({
           </motion.div>
           <div className="flex gap-4 pt-12 md:pt-0">
             <button
+              title="Previous"  
               onClick={handlePrev}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
             >
               <IconArrowLeft className="h-5 w-5 text-black transition-transform duration-300 group-hover/button:rotate-12 dark:text-neutral-400" />
             </button>
             <button
+              title="Next"
               onClick={handleNext}
               className="group/button flex h-7 w-7 items-center justify-center rounded-full bg-gray-100 dark:bg-neutral-800"
             >

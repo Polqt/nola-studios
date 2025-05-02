@@ -20,8 +20,10 @@ const ValueCard: React.FC<ValueCardProps> = ({ icon, title, description, delay }
       <div className="bg-[#FFDF1E]/10 w-12 h-12 rounded-full flex items-center justify-center mb-6 group-hover:bg-[#FFDF1E]/20 transition-all">
         {icon}
       </div>
-      <h3 className="font-bold text-xl mb-3 text-[#FFDF1E]">{title}</h3>
-      <p className="text-neutral-300">{description}</p>
+      <h3 className="font-bold text-xl mb-3 text-[#FFDF1E] lowercase">
+        {title}
+      </h3>
+      <p className="text-neutral-300 lowercase">{description}</p>
     </motion.div>
   );
 };

@@ -22,7 +22,9 @@ const Stats = () => {
           <h3 className="text-4xl md:text-5xl font-bold text-[#FFDF1E]">
             {stat.number}
           </h3>
-          <p className="text-sm uppercase tracking-wider mt-2">{stat.label}</p>
+          <p className="text-sm tracking-wider mt-2 lowercase">
+            {stat.label}
+          </p>
         </motion.div>
       ))}
     </div>

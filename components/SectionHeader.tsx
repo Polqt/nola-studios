@@ -42,7 +42,7 @@ const SectionHeader = ({
         {center && <div className="h-1 w-16 bg-[#FFDF1E] ml-4"></div>}
       </div>
       <h2
-        className="font-bold text-4xl md:text-5xl mb-6 leading-tight"
+        className="font-bold text-4xl md:text-5xl mb-6 leading-tight lowercase"
         dangerouslySetInnerHTML={{ __html: highlightedTitle }}
       />
       {description && <p className="text-lg text-neutral-300">{description}</p>}

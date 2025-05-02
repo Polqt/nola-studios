@@ -55,7 +55,7 @@ export default function About() {
                 <div className="space-y-6 pl-6">
                   <motion.p
                     variants={fadeIn}
-                    className="text-lg leading-relaxed"
+                    className="text-lg leading-relaxed lowercase"
                   >
                     Back when creating content was just something we did for fun
                     — late nights editing videos, designing logos for friends,
@@ -70,7 +70,7 @@ export default function About() {
 
                   <motion.p
                     variants={fadeIn}
-                    className="text-lg leading-relaxed"
+                    className="text-lg leading-relaxed lowercase"
                   >
                     Now, we&apos;re a full-blown creative studio based in the
                     Philippines, working with brands that want more than just
@@ -95,7 +95,7 @@ export default function About() {
                       </span>
                     </div>
 
-                    <p className="text-lg leading-relaxed mb-10">
+                    <p className="text-lg leading-relaxed mb-10 lowercase">
                       We&apos;re creatives, strategists, storytellers, and
                       problem-solvers. But most of all, we&apos;re people who
                       love helping others bring their ideas to life — and make
@@ -119,7 +119,7 @@ export default function About() {
             </div>
           </div>
         </motion.div>
-    
+
         <motion.div variants={fadeIn} className="pt-16 pb-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -134,7 +134,7 @@ export default function About() {
                 what we <span className="text-[#FFDF1E]">do</span>
               </h2>
 
-              <p className="text-lg mb-10">
+              <p className="text-lg mb-10 lowercase">
                 We transform ideas into compelling digital experiences through
                 strategic thinking and creative execution. Our collaborative
                 approach ensures that every project reflects your brand&apos;s
@@ -143,28 +143,36 @@ export default function About() {
 
               <div className="grid grid-cols-2 gap-y-8 gap-x-4">
                 <div>
-                  <h3 className="font-bold text-xl mb-2">Brand Strategy</h3>
-                  <p className="text-neutral-600">
+                  <h3 className="font-bold text-xl mb-2 lowercase">
+                    Brand Strategy
+                  </h3>
+                  <p className="text-neutral-600 lowercase">
                     Crafting authentic brand identities that resonate with your
                     audience
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2">Web Design</h3>
-                  <p className="text-neutral-600">
+                  <h3 className="font-bold text-xl mb-2 lowercase">
+                    Web Design
+                  </h3>
+                  <p className="text-neutral-600 lowercase">
                     Creating intuitive, responsive websites that convert
                     visitors into customers
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2">UI/UX Design</h3>
-                  <p className="text-neutral-600">
+                  <h3 className="font-bold text-xl mb-2 lowercase">
+                    UI/UX Design
+                  </h3>
+                  <p className="text-neutral-600 lowercase">
                     Designing user-centered interfaces that delight and engage
                   </p>
                 </div>
                 <div>
-                  <h3 className="font-bold text-xl mb-2">Digital Marketing</h3>
-                  <p className="text-neutral-600">
+                  <h3 className="font-bold text-xl mb-2 lowercase">
+                    Digital Marketing
+                  </h3>
+                  <p className="text-neutral-600 lowercase">
                     Developing strategies that amplify your brand&apos;s online
                     presence
                   </p>
@@ -180,17 +188,16 @@ export default function About() {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
                 className="relative overflow-hidden rounded-xl shadow-xl shadow-black/10 border-8 border-white"
-              >or 
+              >
                 <div className="aspect-[4/3] bg-neutral-100 rounded-lg relative overflow-hidden">
                   <div className="absolute inset-0 flex items-center justify-center bg-neutral-800">
                     <div className="text-white text-center">
                       <div className="font-bold text-2xl mb-2">
-                        Our Work Process
+                        Jani Jani Yes Papa
                       </div>
                       <div className="inline-flex items-center space-x-2">
                         <span className="w-3 h-3 rounded-full bg-[#FFDF1E]"></span>
                         <span className="text-sm text-neutral-400">
-                          Video preview
                         </span>
                       </div>
                     </div>

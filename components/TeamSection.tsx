@@ -9,12 +9,12 @@ const TeamSection = () => {
       whileInView={{ opacity: 1 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8 }}
-      className="py-32 relative overflow-hidden bg-neutral-900"
+      className="py-32 relative overflow-hidden text-white"
     >
-      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10">
+      <div className="container mx-auto px-4 md:px-6 lg:px-8 relative z-10 text-white lowercase">
         <SectionHeader
           subtitle="Our Team"
-          title="The creative minds behind nola"
+          title="The creative minds of nola"
           description="Talented professionals passionate about crafting exceptional digital experiences"
           center={true}
           titleHighlight="creative minds"
