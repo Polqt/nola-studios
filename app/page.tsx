@@ -1,37 +1,51 @@
+'use client';
+
 import Footer from '@/components/Footer';
 import Navbar from '@/components/Navbar';
-import Main from '@/components/Main';
-import { Separator } from '@/components/ui/separator';
-import { Metadata } from 'next';
-import Services from '@/components/Services';
-import Testimonials from '@/components/Testimonials';
-import Clients from '@/components/Clients';
+import { useEffect, useState } from 'react';
+import BackgroundParticles from '@/components/BackgroundParticles';
+import CustomCursor from '@/components/CustomCursor';
 
-export const metadata: Metadata = {
-  title: 'home | nola',
-};
 
 export default function HomePage() {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [cursorVariant, setCursorVariant] = useState<'default' | 'text'>(
+    'default',
+  );
+
+  useEffect(() => {
+    const mouseMove = (e: MouseEvent) => {
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
+    };
+
+    window.addEventListener('mousemove', mouseMove);
+
+    return () => {
+      window.removeEventListener('mousemove', mouseMove);
+    };
+  }, []);
+
+  const textHoverEnter = () => setCursorVariant('text');
+  const textHoverLeave = () => setCursorVariant('default');
+
   return (
-    <div className="min-h-screen flex flex-col">
-      <div className="flex-grow">
+    <div className="min-h-screen flex flex-col bg-neutral-900 text-white overflow-hidden relative">
+      <CustomCursor
+        mousePosition={mousePosition}
+        cursorVariant={cursorVariant}
+      />
+      <BackgroundParticles />
+
+      <div className="flex-grow relative z-10">
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Navbar />
         </div>
-        <Separator className="bg-black w-full" />
-        <div className="container mx-auto px-4 md:px-6 lg:px-8">
-          <Main />
-        </div>
+
       </div>
-      <div className="min-h-screen flex items-center">
-        <Services />
-      </div>
-      <div className="min-h-screen flex items-center ">
-        <Testimonials />
-      </div>
-      <div className="min-h-screen flex items-center">
-        <Clients />
-      </div>
+
       <Footer />
     </div>
   );

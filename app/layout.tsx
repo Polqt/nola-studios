@@ -1,10 +1,19 @@
 import type { Metadata } from 'next';
 import './globals.css';
-import '@fontsource/inter';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
-  title: '',
+  title: 'home | nola',
+  description:
+    'Learn about nola studios - a creative agency from the Philippines',
 };
+
 
 export default function RootLayout({
   children,
@@ -12,8 +21,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" className={`${inter.variable} scroll-smooth`}>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }
