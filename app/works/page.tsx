@@ -1,3 +1,5 @@
+'use client';
+
 import BackgroundParticles from '@/components/BackgroundParticles';
 import CustomCursor from '@/components/CustomCursor';
 import Footer from '@/components/Footer';
@@ -6,9 +8,7 @@ import { useEffect, useState } from 'react';
 
 export default function WorkPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorVariant] = useState<'default' | 'text'>(
-    'default',
-  );
+  const [cursorVariant] = useState<'default' | 'text'>('default');
 
   useEffect(() => {
     const mouseMove = (e: MouseEvent) => {
@@ -40,7 +40,6 @@ export default function WorkPage() {
         <div className="container mx-auto px-4 md:px-6 lg:px-8">
           <Navbar />
         </div>
-
       </div>
 
       <Footer />
