@@ -6,7 +6,7 @@ import { useEffect, useState } from 'react';
 
 export default function WorkPage() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorVariant, setCursorVariant] = useState<'default' | 'text'>(
+  const [cursorVariant] = useState<'default' | 'text'>(
     'default',
   );
 
@@ -25,8 +25,8 @@ export default function WorkPage() {
     };
   }, []);
 
-  const textHoverEnter = () => setCursorVariant('text');
-  const textHoverLeave = () => setCursorVariant('default');
+  // const textHoverEnter = () => setCursorVariant('text');
+  // const textHoverLeave = () => setCursorVariant('default');
 
   return (
     <div className="min-h-screen flex flex-col bg-neutral-900 text-white overflow-hidden relative">
