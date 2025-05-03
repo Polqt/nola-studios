@@ -5,65 +5,64 @@ import SectionHeader from './SectionHeader';
 import { Carousel, Card } from './ui/apple-cards-carousel';
 
 interface FeaturedWorksProps {
-  textHoverEnter: () => void;
-  textHoverLeave: () => void;
+  textHoverEnter?: () => void;
+  textHoverLeave?: () => void;
 }
 
 const data = [
   {
     category: '7ryms',
-    title: 'You can do more with AI.',
+    title: 'Premium Studio Microphones',
     src: '/7ryms/7RYMS1.png',
-    content: <DummyContent />,
+    content: <DummyContent category="7ryms" />,
   },
   {
     category: 'Boya',
-    title: 'Enhance your productivity.',
+    title: 'Professional Recording Solutions',
     src: '/boya/BOYA1.png',
-    content: <DummyContent />,
+    content: <DummyContent category="Boya" />,
   },
   {
     category: 'FOINE Essence',
-    title: 'Launching the new Apple Vision Pro.',
+    title: 'Luxury Fragrance Collection',
     src: '/foine/FOINE1.png',
-    content: <DummyContent />,
+    content: <DummyContent category="FOINE Essence" />,
   },
-
   {
     category: 'Romoss',
-    title: 'Maps for your iPhone 15 Pro Max.',
+    title: 'Portable Power Solutions',
     src: '/romoss/ROMOSS1.png',
-    content: <DummyContent />,
+    content: <DummyContent category="Romoss" />,
   },
   {
-    category: 'Pacete',
-    title: 'Photography just got better.',
+    category: 'Pacete Clinic',
+    title: 'Modern Healthcare Clinic',
     src: '/pacete/PACETE1.png',
-    content: <DummyContent />,
+    content: <DummyContent category="Pacete" />,
   },
   {
     category: 'Gambrino',
-    title: 'Hiring for a Staff Software Engineer',
+    title: 'Precision Timepieces',
     src: '/gambrino/GAMBRINO1.png',
-    content: <DummyContent />,
+    content: <DummyContent category="Gambrino" />,
   },
   {
     category: 'Linkit',
-    title: 'Hiring for a Staff Software Engineer',
+    title: 'Smart NFC Business Cards',
     src: '/linkit/LINKIT1.png',
-    content: <DummyContent />
+    content: <DummyContent category="Linkit" />,
   },
   {
     category: 'Wallex',
-    title: 'Hiring for a Staff Software Engineer',
+    title: 'Secure Digital Wallet',
     src: '/wallex/WALLEX1.png',
-    content: <DummyContent />,
+    content: <DummyContent category="Wallex" />,
   },
   {
     category: 'Nomadico',
-    title: 'Hiring for a Staff Software Engineer',
+    title: 'Travel-friendly Payment Solutions',
     src: '/nomadico/NOMADICO1.png',
-    content: <DummyContent />,
+    content: <DummyContent category="Nomadico" />,
   },
 ];
 
@@ -77,7 +76,7 @@ const FeaturedWorks = ({}: FeaturedWorksProps) => {
       <div className="container mx-auto">
         <SectionHeader
           subtitle="Featured"
-          title="Selected projects"
+          title="jani projects"
           titleHighlight="projects"
         />
         <Carousel items={cards} />

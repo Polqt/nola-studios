@@ -1,34 +1,57 @@
 import Image from 'next/image';
 
-const DummyContent = () => {
+interface DummyContentProps {
+  category: string;
+}
+
+const categoryContent = {
+  '7ryms': {
+    images: Array(7).fill(0).map((_, i) => `/7ryms/7RYMS${i+1}.png`)
+  },
+  'Boya': {
+    images: Array(9).fill(0).map((_, i) => `/boya/BOYA${i+1}.png`)
+  },
+  'FOINE Essence': {
+    images: Array(9).fill(0).map((_, i) => `/foine/FOINE${i+1}.png`)
+  },
+  'Romoss': {
+    images: Array(9).fill(0).map((_, i) => `/romoss/ROMOSS${i+1}.png`)
+  },
+  'Pacete': {
+    images: Array(9).fill(0).map((_, i) => `/pacete/PACETE${i+1}.png`)
+  },
+  'Gambrino': {
+    images: Array(5).fill(0).map((_, i) => `/gambrino/GAMBRINO${i+1}.png`)
+  },
+  'Linkit': {
+    images: Array(7).fill(0).map((_, i) => `/linkit/LINKIT${i+1}.png`)
+  },
+  'Wallex': {
+    images: Array(9).fill(0).map((_, i) => `/wallex/WALLEX${i+1}.png`)
+  },
+  'Nomadico': {
+    images: Array(9).fill(0).map((_, i) => `/nomadico/NOMADICO${i+1}.png`)
+  },
+};
+
+const DummyContent = ({ category = 'default' }: DummyContentProps) => {
+  const content = categoryContent[category as keyof typeof categoryContent];
+  
   return (
-    <>
-      {[...new Array(1).fill(1)].map((_, index) => {
-        return (
-          <div
-            key={'dummy-content' + index}
-            className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4"
-          >
-            <p className="text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-              <span className="font-bold text-neutral-200">
-                The first rule of Apple club is that you boast about Apple club.
-              </span>{' '}
-              Keep a journal, quickly jot down a grocery list, and take amazing
-              class notes. Want to convert those notes to text? No problem.
-              Langotiya jeetu ka mara hua yaar is ready to capture every
-              thought.
-            </p>
+    <div className="bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+        {content.images.map((src, index) => (
+          <div key={index} className="aspect-square relative overflow-hidden rounded-xl bg-neutral-200 dark:bg-neutral-700">
             <Image
-              src="/logo/FOINE.svg"
-              alt="Macbook mockup from Aceternity UI"
-              height="500"
-              width="500"
-              className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
+              src={src}
+              alt={`${category} project image ${index + 1}`}
+              fill
+              className="object-cover hover:scale-105 transition-transform duration-300"
             />
           </div>
-        );
-      })}
-    </>
+        ))}
+      </div>
+    </div>
   );
 };
 
