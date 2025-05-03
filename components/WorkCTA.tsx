@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 interface WorkCTAProps {
   textHoverEnter: () => void;
@@ -19,7 +19,8 @@ const WorkCTA = ({ textHoverEnter, textHoverLeave }: WorkCTAProps) => {
             onMouseEnter={textHoverEnter}
             onMouseLeave={textHoverLeave}
           >
-            ready to <span className="text-[#FFDF1E]">transform</span> your vision?
+            ready to <span className="text-[#FFDF1E]">transform</span> your
+            vision?
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 30 }}
@@ -38,7 +39,7 @@ const WorkCTA = ({ textHoverEnter, textHoverLeave }: WorkCTAProps) => {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.2 }}
             whileHover={{ scale: 1.05 }}
-            href="/contact"
+            href="/contacts"
             className="inline-flex items-center justify-center px-8 py-4 rounded-full bg-[#FFDF1E] text-neutral-900 font-bold text-lg transition-transform"
             onMouseEnter={textHoverEnter}
             onMouseLeave={textHoverLeave}
@@ -49,6 +50,6 @@ const WorkCTA = ({ textHoverEnter, textHoverLeave }: WorkCTAProps) => {
       </div>
     </div>
   );
-}
+};
 
 export default WorkCTA;

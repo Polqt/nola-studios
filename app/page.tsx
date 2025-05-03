@@ -77,6 +77,8 @@ export default function HomePage() {
 
         <Clients />
 
+        <SectionDivider />
+
         <CTAHome
           textHoverEnter={textHoverEnter}
           textHoverLeave={textHoverLeave}

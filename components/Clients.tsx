@@ -25,7 +25,22 @@ const Clients = () => {
   ];
 
   return (
-    <div className="container mx-auto px-4 md:px-6 lg:px-8 py-32">
+    <div className="container mx-auto px-4 md:px-6 lg:px-8 py-32 relative">
+      <motion.div
+        className="absolute top-0 left-1/4 w-64 h-64 bg-gradient-to-br from-[#FFDF1E]/10 to-transparent rounded-full blur-3xl z-0"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5 }}
+      />
+      <motion.div
+        className="absolute bottom-0 right-1/4 w-96 h-96 bg-gradient-to-tl from-[#FFDF1E]/5 to-transparent rounded-full blur-3xl z-0"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 1.5, delay: 0.3 }}
+      />
+
       <SectionHeader
         subtitle="collaborations"
         title="brands that trust us"
@@ -34,28 +49,28 @@ const Clients = () => {
         description="We're proud to partner with innovative brands across diverse industries to create exceptional digital experiences."
       />
 
-      <div className="mt-24">
-        <div className="hidden md:flex flex-wrap justify-center items-center">
+      <motion.div
+        className="mt-24 relative z-10"
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="hidden md:block">
           <motion.div
-            className="w-full"
+            className="flex flex-wrap justify-center gap-x-10 gap-y-16"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, staggerChildren: 0.1 }}
+            transition={{ staggerChildren: 0.15 }}
           >
-            <div className="flex justify-center mb-16">
-              {clients.slice(0, 3).map((client, index) => (
-                <ClientCard key={index} client={client} index={index} />
-              ))}
-            </div>
-            <div className="flex justify-center mt-8">
-              {clients.slice(3).map((client, index) => (
-                <ClientCard key={index + 3} client={client} index={index + 3} />
-              ))}
-            </div>
+            {clients.map((client, index) => (
+              <ClientCard key={index} client={client} index={index} />
+            ))}
           </motion.div>
         </div>
 
+        {/* Mobile layout */}
         <div className="grid grid-cols-2 gap-8 md:hidden">
           {clients.map((client, index) => (
             <ClientCard
@@ -66,7 +81,7 @@ const Clients = () => {
             />
           ))}
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
@@ -98,74 +113,59 @@ const ClientCard = ({
     },
   };
 
-  const hoverEffect = {
-    rest: { scale: 1 },
-    hover: {
-      scale: 1.05,
-      transition: {
-        type: 'spring',
-        stiffness: 400,
-        damping: 17,
-      },
-    },
-  };
-
-  const pulseAnimation = {
-    rest: {
-      opacity: 0.8,
-      scale: 1,
-    },
-    hover: {
-      opacity: 1,
-      scale: 1.1,
-      transition: {
-        duration: 0.4,
-        yoyo: Infinity,
-        ease: 'easeInOut',
-      },
-    },
-  };
-
   return (
     <motion.div
-      className={`px-6 ${isMobile ? 'w-full' : ''}`}
+      className={isMobile ? 'w-full' : 'w-auto'}
       variants={cardVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
     >
       <motion.div
-        className="group relative"
-        initial="rest"
-        whileHover="hover"
-        animate="rest"
-        variants={hoverEffect}
+        className="group relative flex flex-col items-center"
+        whileHover={{
+          y: -5,
+          transition: { type: 'spring', stiffness: 400, damping: 17 },
+        }}
       >
-        <div className="relative">
-          <motion.div
-            variants={pulseAnimation}
-            className="absolute -inset-1 rounded-full bg-[#FFDF1E]/20 opacity-0 group-hover:opacity-100 blur-lg transition-opacity duration-300"
+        <motion.div
+          className="absolute -inset-4 bg-gradient-to-r from-[#FFDF1E]/5 to-[#FFDF1E]/10 rounded-full opacity-0 group-hover:opacity-100 blur-xl"
+          initial={{ scale: 0.8 }}
+          whileHover={{
+            scale: 1.2,
+            transition: { duration: 0.7, ease: 'easeOut' },
+          }}
+        />
+
+        <motion.div
+          className="relative z-10 w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border border-transparent group-hover:border-[#FFDF1E]/30 transition-all duration-300 flex items-center justify-center"
+          whileHover={{
+            scale: 1.05,
+            transition: { type: 'spring', stiffness: 500, damping: 15 },
+          }}
+        >
+          <Image
+            width={100}
+            height={100}
+            src={client.logoPath}
+            alt={client.name}
+            className="w-full h-full object-cover rounded-full transition-all duration-500 filter grayscale group-hover:grayscale-0 group-hover:brightness-110"
           />
+        </motion.div>
 
-          <div className="relative w-32 h-32 md:w-40 md:h-40 bg-neutral-800 rounded-full flex items-center justify-center overflow-hidden border border-neutral-700 group-hover:border-[#FFDF1E]/50 transition-colors duration-300">
-            <Image
-              width={100}
-              height={100}
-              src={client.logoPath}
-              alt={client.name}
-              className="w-20 h-20 md:w-24 md:h-24 object-contain transition-all duration-300 filter grayscale group-hover:grayscale-0"
-            />
-          </div>
-        </div>
-
-        <div className="mt-6 text-center transform transition-all duration-300">
-          <h3 className="font-semibold text-lg text-white mb-1 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {client.name}
-          </h3>
-          <p className="text-sm text-[#FFDF1E] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-            {client.category}
-          </p>
-        </div>
+        <motion.div
+          className="mt-4 text-center transform transition-all duration-300 overflow-hidden"
+          style={{ maxHeight: '0px', opacity: 0 }}
+          whileHover={{ maxHeight: '100px', opacity: 1 }}
+          animate={{
+            maxHeight: isMobile ? '100px' : '0px',
+            opacity: isMobile ? 1 : 0,
+          }}
+        >
+          <h3 className="font-medium text-base text-white">{client.name}</h3>
+          <span className="inline-block h-px w-8 bg-[#FFDF1E]/50 my-2"></span>
+          <p className="text-xs text-[#FFDF1E]">{client.category}</p>
+        </motion.div>
       </motion.div>
     </motion.div>
   );
