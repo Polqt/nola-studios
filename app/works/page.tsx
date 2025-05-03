@@ -61,13 +61,6 @@ export default function WorkPage() {
 
         <SectionDivider />
 
-        {/* <ClientShowcase 
-          textHoverEnter={textHoverEnter}
-          textHoverLeave={textHoverLeave}
-        /> */}
-
-        <SectionDivider />
-
         <WorkCTA
           textHoverEnter={textHoverEnter}
           textHoverLeave={textHoverLeave}

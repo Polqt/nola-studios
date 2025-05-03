@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
+import { motion } from 'framer-motion';
 
 interface WorkHeroProps {
-    textHoverEnter: () => void;
-    textHoverLeave: () => void;
+  textHoverEnter: () => void;
+  textHoverLeave: () => void;
 }
 
 const WorkHero = ({ textHoverEnter, textHoverLeave }: WorkHeroProps) => {

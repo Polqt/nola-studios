@@ -14,9 +14,12 @@ const Main = ({ textHoverEnter, textHoverLeave }: MainProps) => {
         transition={{ duration: 0.8, delay: 0.2 }}
         className="max-w-4xl"
       >
-        <span className="text-[#FFDF1E] uppercase text-sm tracking-widest mb-4 inline-block">
-          Digital Creative Studio
-        </span>
+        <div className="flex items-center space-x-4 mb-2">
+          <div className="h-px w-12 bg-[#FFDF1E]" />
+          <span className="text-[#FFDF1E] uppercase text-sm tracking-widest font-medium">
+            Digital Creative Studio
+          </span>
+        </div>
         <h1
           className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-8 leading-tight"
           onMouseEnter={textHoverEnter}
@@ -28,7 +31,7 @@ const Main = ({ textHoverEnter, textHoverLeave }: MainProps) => {
         </h1>
 
         <motion.div
-          className="space-y-6 text-xl"
+          className="space-y-6 text-xl bg-gradient-to-b "
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 0.6 }}
