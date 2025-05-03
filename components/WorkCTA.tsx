@@ -27,7 +27,7 @@ const WorkCTA = ({ textHoverEnter, textHoverLeave }: WorkCTAProps) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-xl text-neutral-300 mb-12"
+            className="text-xl text-neutral-300 mb-12 lowercase"
             onMouseEnter={textHoverEnter}
             onMouseLeave={textHoverLeave}
           >

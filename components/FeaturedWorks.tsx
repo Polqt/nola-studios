@@ -11,40 +11,58 @@ interface FeaturedWorksProps {
 
 const data = [
   {
-    category: 'Artificial Intelligence',
+    category: '7ryms',
     title: 'You can do more with AI.',
-    src: '/logo/FOINE.svg',
+    src: '/7ryms/7RYMS1.png',
     content: <DummyContent />,
   },
   {
-    category: 'Productivity',
+    category: 'Boya',
     title: 'Enhance your productivity.',
-    src: '/logo/FOINE.svg',
+    src: '/boya/BOYA1.png',
     content: <DummyContent />,
   },
   {
-    category: 'Product',
+    category: 'FOINE Essence',
     title: 'Launching the new Apple Vision Pro.',
-    src: '/logo/FOINE.svg',
+    src: '/foine/FOINE1.png',
     content: <DummyContent />,
   },
 
   {
-    category: 'Product',
+    category: 'Romoss',
     title: 'Maps for your iPhone 15 Pro Max.',
-    src: '/logo/FOINE.svg',
+    src: '/romoss/ROMOSS1.png',
     content: <DummyContent />,
   },
   {
-    category: 'iOS',
+    category: 'Pacete',
     title: 'Photography just got better.',
-    src: '/logo/FOINE.svg',
+    src: '/pacete/PACETE1.png',
     content: <DummyContent />,
   },
   {
-    category: 'Hiring',
+    category: 'Gambrino',
     title: 'Hiring for a Staff Software Engineer',
-    src: '/logo/FOINE.svg',
+    src: '/gambrino/GAMBRINO1.png',
+    content: <DummyContent />,
+  },
+  {
+    category: 'Linkit',
+    title: 'Hiring for a Staff Software Engineer',
+    src: '/linkit/LINKIT1.png',
+    content: <DummyContent />
+  },
+  {
+    category: 'Wallex',
+    title: 'Hiring for a Staff Software Engineer',
+    src: '/wallex/WALLEX1.png',
+    content: <DummyContent />,
+  },
+  {
+    category: 'Nomadico',
+    title: 'Hiring for a Staff Software Engineer',
+    src: '/nomadico/NOMADICO1.png',
     content: <DummyContent />,
   },
 ];
