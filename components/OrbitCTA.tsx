@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
 
 const OrbitCTA = () => {
   return (
@@ -22,14 +21,6 @@ const OrbitCTA = () => {
           <div className="absolute inset-8 rounded-full border border-[#FFDF1E]/10" />
           <div className="absolute inset-16 rounded-full border border-[#FFDF1E]/5" />
           <div className="absolute inset-24 rounded-full bg-[#FFDF1E]/5" />
-          <div className="absolute inset-0 flex items-center justify-center">
-            <motion.div
-              whileHover={{ scale: 1.1 }}
-              className="w-16 h-16 rounded-full bg-[#FFDF1E] flex items-center justify-center cursor-pointer"
-            >
-              <ArrowRight size={24} className="text-neutral-900" />
-            </motion.div>
-          </div>
         </div>
       </div>
     </motion.div>

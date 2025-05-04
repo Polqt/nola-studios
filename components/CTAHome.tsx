@@ -27,7 +27,7 @@ const CTAHome = ({ textHoverEnter, textHoverLeave }: CTAHomeProps) => {
           start the conversation.
         </p>
         <motion.a
-          href="/contact"
+          href="/contacts"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           className="bg-[#FFDF1E] text-black px-10 py-5 font-medium inline-block text-lg hover:bg-white transition-colors lowercase"
