@@ -12,10 +12,10 @@ const categoryContent = {
     images: Array(9).fill(0).map((_, i) => `/boya/BOYA${i+1}.png`)
   },
   'FOINE Essence': {
-    images: Array(9).fill(0).map((_, i) => `/foine/FOINE${i+1}.png`)
+    images: Array(41).fill(0).map((_, i) => `/foine/FOINE${i+1}.png`)
   },
   'Romoss': {
-    images: Array(9).fill(0).map((_, i) => `/romoss/ROMOSS${i+1}.png`)
+    images: Array(27).fill(0).map((_, i) => `/romoss/ROMOSS${i+1}.png`)
   },
   'Pacete': {
     images: Array(9).fill(0).map((_, i) => `/pacete/PACETE${i+1}.png`)
@@ -24,13 +24,13 @@ const categoryContent = {
     images: Array(5).fill(0).map((_, i) => `/gambrino/GAMBRINO${i+1}.png`)
   },
   'Linkit': {
-    images: Array(7).fill(0).map((_, i) => `/linkit/LINKIT${i+1}.png`)
+    images: Array(16).fill(0).map((_, i) => `/linkit/LINKIT${i+1}.png`)
   },
   'Wallex': {
-    images: Array(9).fill(0).map((_, i) => `/wallex/WALLEX${i+1}.png`)
+    images: Array(28).fill(0).map((_, i) => `/wallex/WALLEX${i+1}.png`)
   },
   'Nomadico': {
-    images: Array(9).fill(0).map((_, i) => `/nomadico/NOMADICO${i+1}.png`)
+    images: Array(25).fill(0).map((_, i) => `/nomadico/NOMADICO${i+1}.png`)
   },
 };
 
