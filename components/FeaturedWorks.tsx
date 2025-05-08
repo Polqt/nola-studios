@@ -76,7 +76,7 @@ const FeaturedWorks = ({}: FeaturedWorksProps) => {
       <div className="container mx-auto">
         <SectionHeader
           subtitle="Featured"
-          title="jani projects"
+          title="our projects"
           titleHighlight="projects"
         />
         <Carousel items={cards} />

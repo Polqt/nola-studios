@@ -44,20 +44,20 @@ const Main = ({ textHoverEnter, textHoverLeave }: MainProps) => {
 
           <div className="pt-8 flex space-x-6">
             <motion.a
-              href="#work"
+              href="#works"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="bg-[#FFDF1E] text-black px-8 py-4 font-medium inline-block transition-colors"
+              className="bg-[#FFDF1E] text-black px-8 py-4 font-medium inline-block transition-colors rounded-full"
               onMouseEnter={textHoverEnter}
               onMouseLeave={textHoverLeave}
             >
               see our work
             </motion.a>
             <motion.a
-              href="#contact"
+              href="#contacts"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="border border-white px-8 py-4 font-medium inline-block hover:bg-white/10 transition-colors"
+              className="border border-white px-8 py-4 font-medium inline-block hover:bg-white/10 transition-colors rounded-full"
               onMouseEnter={textHoverEnter}
               onMouseLeave={textHoverLeave}
             >

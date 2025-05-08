@@ -1,5 +1,6 @@
 import { motion } from 'framer-motion';
 import SectionHeader from './SectionHeader';
+import { cn } from '@/lib/utils';
 
 const Services = () => {
   const services = [
@@ -47,7 +48,11 @@ const Services = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="bg-neutral-800/50 p-8 backdrop-blur-sm"
+            className={cn(
+              'relative h-full w-72 cursor-pointer overflow-hidden rounded-lg p-6 m-3',
+              'border border-neutral-800 bg-neutral-900/80 backdrop-blur-sm',
+              'hover:border-[#FFDF1E]/30 hover:bg-neutral-800/90 transition-colors duration-300',
+            )}
           >
             <div className="text-4xl mb-4 text-[#FFDF1E]">{service.icon}</div>
             <h3 className="text-2xl font-bold mb-4 lowercase">
