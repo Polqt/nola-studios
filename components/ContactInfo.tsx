@@ -158,7 +158,7 @@ export default function ContactInfo() {
           <div className="relative z-10">
             <p className="text-lg mb-3 lowercase">
               at nola studios philippines, we believe the best projects start
-              with real conversations. no complicated jargon, no pzressure — just
+              with real conversations. no complicated jargon, no pressure — just
               honest, creative collaboration.
             </p>
             <div className="flex items-center justify-between mt-4">
